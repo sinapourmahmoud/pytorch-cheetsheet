@@ -71,8 +71,8 @@ def check_accuracy(loader,model):
             x = x.reshape(x.shape[0],-1)
             scores = model(x)
             _,predictions = scores.max(1)
-            num_correct = (predictions == y).sum()
-            num_samples = predictions.size(0)
+            num_correct += (predictions == y).sum()
+            num_samples += predictions.size(0)
             
         print(f"Got {num_correct}/{num_samples} which is {float(num_correct)/float(num_samples)*100:.2f}")
     
